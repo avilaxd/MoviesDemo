@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">@color/grayMain</color>
+    <color name="colorPrimaryDark">@color/grayMainDark</color>
+    <color name="colorAccent">@color/orangeAccent</color>
+    <color name="black">#000000</color>
+    <color name="white">#FFFFFF</color>
+    <color name="transparent">#00000000</color>
+    <color name="grayMain">#1E2931</color>
+    <color name="grayMainDark">#182027</color>
+    <color name="graySecondary">#3C515C</color>
+    <color name="greenAccent">#1C8E73</color>
+    <color name="orangeAccent">#F78E02</color>
+</resources>
