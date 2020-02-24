@@ -7,8 +7,13 @@ import com.rudio.moviesdemo.data.models.Backdrop
 import com.rudio.moviesdemo.data.models.CastMember
 import com.rudio.moviesdemo.data.models.Movie
 import com.rudio.moviesdemo.data.repositories.RepositoryMovies
+import javax.inject.Inject
+import javax.inject.Singleton
 
-class ViewModelMovieDetail(private val repositoryMovies: RepositoryMovies) : ViewModel() {
+@Singleton
+class ViewModelMovieDetail @Inject constructor(
+    private val repositoryMovies: RepositoryMovies
+) : ViewModel() {
     private val movie: MutableLiveData<Movie> = MutableLiveData()
 
     fun getMovie(): LiveData<Movie> = movie
