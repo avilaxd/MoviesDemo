@@ -5,5 +5,7 @@ import com.rudio.moviesdemo.di.AppComponent
 import com.rudio.moviesdemo.di.DaggerAppComponent
 
 class AppMain : Application() {
-    val appComponent: AppComponent by lazy { DaggerAppComponent.create() }
+    val appComponent: AppComponent by lazy {
+        DaggerAppComponent.factory().create(applicationContext)
+    }
 }

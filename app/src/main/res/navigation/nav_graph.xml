@@ -3,20 +3,24 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/fragmentMovies">
+    app:startDestination="@id/fragmentMain">
+
+    <fragment
+        android:id="@+id/fragmentMain"
+        android:name="com.rudio.moviesdemo.ui.fragments.FragmentMain"
+        android:label="FragmentMain"
+        tools:layout="@layout/fragment_main">
+
+        <action
+            android:id="@+id/action_fragmentMain_to_fragmentMovieDetail"
+            app:destination="@id/fragmentMovieDetail"/>
+    </fragment>
 
     <fragment
         android:id="@+id/fragmentMovies"
         android:name="com.rudio.moviesdemo.ui.fragments.FragmentMovies"
         android:label="FragmentMovies"
-        tools:layout="@layout/fragment_movies">
-
-        <action
-            android:id="@+id/action_fragmentMovies_to_fragmentMovieDetail"
-            app:destination="@+id/fragmentMovieDetail"
-            app:enterAnim="@anim/nav_default_enter_anim"
-            app:exitAnim="@anim/nav_default_exit_anim" />
-    </fragment>
+        tools:layout="@layout/fragment_movies"/>
 
     <fragment
         android:id="@+id/fragmentMovieDetail"
@@ -28,4 +32,10 @@
             android:name="movie"
             app:argType="com.rudio.moviesdemo.data.models.Movie"/>
     </fragment>
+
+    <fragment
+        android:id="@+id/fragmentFavorites"
+        android:name="com.rudio.moviesdemo.ui.fragments.FragmentFavorites"
+        android:label="FragmentFavorites"
+        tools:layout="@layout/fragment_favorite"/>
 </navigation>

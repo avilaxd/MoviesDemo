@@ -2,6 +2,7 @@ package com.rudio.moviesdemo.data.repositories
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import com.rudio.moviesdemo.data.database.DaoMovie
 import com.rudio.moviesdemo.data.models.*
 import com.rudio.moviesdemo.networking.ServiceTMDB
 import com.rudio.moviesdemo.utils.API_KEY
@@ -12,7 +13,10 @@ import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class RepositoryMovies @Inject constructor(private val serviceTMDB: ServiceTMDB) {
+class RepositoryMovies @Inject constructor(
+    private val serviceTMDB: ServiceTMDB,
+    private val daoMovies: DaoMovie
+) {
     private val movies: MutableLiveData<List<Movie>> = MutableLiveData()
     private val backdrops: MutableLiveData<List<Backdrop>> = MutableLiveData()
     private val cast: MutableLiveData<List<CastMember>> = MutableLiveData()
@@ -22,6 +26,14 @@ class RepositoryMovies @Inject constructor(private val serviceTMDB: ServiceTMDB)
     fun getBackdrops(): LiveData<List<Backdrop>> = backdrops
 
     fun getCast(): LiveData<List<CastMember>> = cast
+
+    fun getFavorites(): LiveData<List<Movie>> = daoMovies.getFavorites()
+
+    fun insertFavorite(movie: Movie) = daoMovies.insertFavorite(movie)
+
+    fun deleteFavorite(movie: Movie) = daoMovies.deleteFavorite(movie)
+
+    fun isFavorite(id: Int) = daoMovies.isFavorite(id)
 
     fun fetchMovies() {
         serviceTMDB.getMovies(API_KEY).enqueue(object : Callback<ResponseMovies> {

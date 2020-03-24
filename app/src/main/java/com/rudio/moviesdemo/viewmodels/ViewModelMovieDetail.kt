@@ -24,6 +24,12 @@ class ViewModelMovieDetail @Inject constructor(
 
     fun getBackdrops(): LiveData<List<Backdrop>> = repositoryMovies.getBackdrops()
 
+    fun insertFavorite(movie: Movie) = repositoryMovies.insertFavorite(movie)
+
+    fun deleteFavorite(movie: Movie) = repositoryMovies.deleteFavorite(movie)
+
+    fun isFavorite(id: Int) = repositoryMovies.isFavorite(id)
+
     fun fetchBackdrops(id: Int) = repositoryMovies.fetchBackdrops(id)
 
     fun getCast(): LiveData<List<CastMember>> = repositoryMovies.getCast()

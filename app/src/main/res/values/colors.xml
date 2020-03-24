@@ -9,6 +9,7 @@
     <color name="grayMain">#1E2931</color>
     <color name="grayMainDark">#182027</color>
     <color name="graySecondary">#3C515C</color>
+    <color name="grayLight">#9FA3A7</color>
     <color name="greenAccent">#1C8E73</color>
     <color name="orangeAccent">#F78E02</color>
 </resources>

@@ -6,6 +6,7 @@ import kotlinx.android.parcel.Parcelize
 
 @Parcelize
 data class ResponseMovies(
+    @SerializedName("page")
     val page: Int = 0,
     @SerializedName("total_results")
     val resultsTotal: Int = 0,

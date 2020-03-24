@@ -1,9 +1,8 @@
 package com.rudio.moviesdemo.di.modules
 
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
 import com.rudio.moviesdemo.di.annotations.ViewModelKey
-import com.rudio.moviesdemo.viewmodels.ViewModelFactory
+import com.rudio.moviesdemo.viewmodels.ViewModelFavorites
 import com.rudio.moviesdemo.viewmodels.ViewModelMovieDetail
 import com.rudio.moviesdemo.viewmodels.ViewModelMovies
 import dagger.Binds
@@ -22,4 +21,9 @@ abstract class ModuleViewModel {
     @IntoMap
     @ViewModelKey(ViewModelMovieDetail::class)
     abstract fun bindViewModelMovieDetail(viewModel: ViewModelMovieDetail): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(ViewModelFavorites::class)
+    abstract fun bindViewModelFavorites(viewModel: ViewModelFavorites): ViewModel
 }

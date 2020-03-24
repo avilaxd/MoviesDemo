@@ -3,4 +3,6 @@
     <string name="movie_synopsis">Synopsis:</string>
     <string name="cast_date">Release Date:</string>
     <string name="cast_language">Language:</string>
+    <string name="tab_movies">MOVIES</string>
+    <string name="tab_favorites">FAVORITES</string>
 </resources>

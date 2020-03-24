@@ -6,6 +6,7 @@ import kotlinx.android.parcel.Parcelize
 
 @Parcelize
 data class CastMember(
+    @SerializedName("id")
     val id: Int = 0,
     @SerializedName("name")
     val nameActor: String = "",

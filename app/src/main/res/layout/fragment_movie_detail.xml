@@ -54,13 +54,34 @@
             android:padding="8dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/pagerImages"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/toggleFavorite"
             app:layout_constraintBottom_toTopOf="@id/imagePoster"
             android:textColor="@color/white"
             android:textSize="20sp"
             android:textAlignment="center"
             android:fontFamily="sans-serif-medium"
             tools:text="Birds of Prey (and the Fantabulous Emancipation of One Harley Quinn)"/>
+
+        <ToggleButton
+            android:id="@+id/toggleFavorite"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintStart_toEndOf="@id/textTitle"
+            app:layout_constraintTop_toBottomOf="@id/pagerImages"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/barrierTitle"
+            android:background="@drawable/selector_favorite"
+            android:textOff=""
+            android:textOn=""/>
+        
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/barrierTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:barrierDirection="bottom"
+            app:constraint_referenced_ids="textTitle, toggleFavorite"/>
 
         <ImageView
             android:id="@+id/imagePoster"
@@ -115,7 +136,7 @@
             android:id="@+id/textVotes"
             android:layout_width="56dp"
             android:layout_height="56dp"
-            android:layout_marginStart="24dp"
+            android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="12dp"
             app:layout_constraintStart_toStartOf="parent"
@@ -194,7 +215,7 @@
             android:id="@+id/recyclerCast"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="8dp"
             android:layout_marginBottom="12dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/textVotes"

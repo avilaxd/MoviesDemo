@@ -2,15 +2,11 @@ package com.rudio.moviesdemo.ui.fragments
 
 import android.content.Context
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.rudio.moviesdemo.R
-import com.rudio.moviesdemo.data.models.Backdrop
-import com.rudio.moviesdemo.data.models.CastMember
 import com.rudio.moviesdemo.data.models.Movie
 import com.rudio.moviesdemo.ui.adapters.AdapterBackdrops
 import com.rudio.moviesdemo.ui.adapters.AdapterCast
@@ -24,9 +20,10 @@ import com.rudio.moviesdemo.viewmodels.ViewModelMovieDetail
 import kotlinx.android.synthetic.main.fragment_movie_detail.*
 import javax.inject.Inject
 
-class FragmentMovieDetail : Fragment() {
+class FragmentMovieDetail : Fragment(R.layout.fragment_movie_detail) {
     @Inject lateinit var viewModelFactory: ViewModelFactory
     private lateinit var movie: Movie
+    private lateinit var viewModel: ViewModelMovieDetail
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -40,19 +37,16 @@ class FragmentMovieDetail : Fragment() {
         }
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_movie_detail, container, false)
-    }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         TextViewHelper.enableScroll(textSynopsisBody)
         recyclerCast.addItemDecoration(ItemDecorationCast())
+        toggleFavorite.setOnClickListener { setFavorite(movie) }
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        val viewModel = ViewModelProvider(this, viewModelFactory)[ViewModelMovieDetail::class.java]
+        viewModel = ViewModelProvider(this, viewModelFactory)[ViewModelMovieDetail::class.java]
         startObserving(viewModel)
         viewModel.setMovie(movie)
         viewModel.fetchBackdrops(movie.id)
@@ -60,25 +54,26 @@ class FragmentMovieDetail : Fragment() {
     }
 
     private fun startObserving(viewModel: ViewModelMovieDetail) {
-        viewModel.getMovie().observe(viewLifecycleOwner, Observer<Movie> { movie ->
-            updateUIMovie(movie)
+        viewModel.getMovie().observe(viewLifecycleOwner, Observer { movie ->
+            updateUI(movie)
         })
-        viewModel.getBackdrops().observe(viewLifecycleOwner, Observer<List<Backdrop>> { backdrops ->
+        viewModel.getBackdrops().observe(viewLifecycleOwner, Observer { backdrops ->
             updateUIBackdrops(AdapterBackdrops(backdrops))
         })
 
-        viewModel.getCast().observe(viewLifecycleOwner, Observer<List<CastMember>> { cast ->
+        viewModel.getCast().observe(viewLifecycleOwner, Observer { cast ->
             updateUICast(AdapterCast(cast))
         })
     }
 
-    private fun updateUIMovie(movie: Movie) {
+    private fun updateUI(movie: Movie) {
         textTitle.text = movie.title
         textSynopsisBody.text = movie.overview
         textVotes.text = movie.votesAverage.toString()
         textDateBody.text = movie.date
         textLanguageBody.text = movie.language
         PicassoHelper.setImage(imagePoster, movie.poster?.prependPosterPath() ?: "", R.drawable.placeholder_poster)
+        setToggleFavorite(isFavorite(movie))
     }
 
     private fun updateUIBackdrops(adapterBackdrops: AdapterBackdrops) {
@@ -87,5 +82,23 @@ class FragmentMovieDetail : Fragment() {
 
     private fun updateUICast(adapterCast: AdapterCast) {
         recyclerCast.adapter = adapterCast
+    }
+
+    private fun isFavorite(movie: Movie): Boolean {
+        return viewModel.isFavorite(movie.id).isNotEmpty()
+    }
+
+    private fun setToggleFavorite(isChecked: Boolean) {
+        toggleFavorite.isChecked = isChecked
+    }
+
+    private fun setFavorite(movie: Movie) {
+        //It uses '!' because it first dispatches the click to the normal
+        //behaviour of the toggle changing it's "isChecked" state
+        if (!toggleFavorite.isChecked) {
+            viewModel.deleteFavorite(movie)
+        } else {
+            viewModel.insertFavorite(movie)
+        }
     }
 }
