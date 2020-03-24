@@ -27,6 +27,7 @@ device/emulator running Android 21+ if you want to install it.
 - [ConstraintLayout:][8] a ViewGroup that allows you to position and size widgets in a flexible way.
 - [RecyclerView:][9] a flexible view for providing a limited window into a large data set.
 - [Picasso:][10] a powerful image downloading and caching library for Android.
+- [Dagger2:][11] is a fully static, compile-time dependency injection framework for both Java and Android.
 
 
 [0]: https://developer.android.com/jetpack
@@ -40,6 +41,7 @@ device/emulator running Android 21+ if you want to install it.
 [8]: https://developer.android.com/reference/android/support/constraint/ConstraintLayout
 [9]: https://developer.android.com/reference/android/support/v7/widget/RecyclerView
 [10]: https://square.github.io/picasso/
+[11]: https://dagger.dev/
 
 ## Screenshots
 <p float="left">
@@ -50,3 +52,4 @@ device/emulator running Android 21+ if you want to install it.
 
 ## Changelog
 - **Jan 10, 2020:** initial commit.
+- **Feb 23, 2020:** implementation of Dependency Injection using Dagger2.
