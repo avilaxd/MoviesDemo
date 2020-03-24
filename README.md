@@ -54,6 +54,6 @@ device/emulator running Android 21+ if you want to install it.
 </p>
 
 ## Changelog
-_ **Mar 24, 2020:** implementation of a SQLite database for favorites using Room.
+- **Mar 24, 2020:** implementation of a SQLite database for favorites using Room.
 - **Feb 23, 2020:** implementation of Dependency Injection using Dagger2.
 - **Jan 10, 2020:** initial commit.
