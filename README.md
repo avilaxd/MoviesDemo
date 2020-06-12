@@ -1,6 +1,6 @@
 # MoviesDemo
 
-<img src="https://user-images.githubusercontent.com/9456286/72633334-dcd4f480-391d-11ea-877e-9e5ece3f0b2b.gif" width="250" align="right">
+<img src="https://user-images.githubusercontent.com/9456286/77485076-e1bc9580-6df1-11ea-8a26-7fa62eb86da9.gif" width="250" align="right">
 
 MoviesDemo is a demo project developed by me (Armando Ávila Bueno) as part of my resume in order to show recruiters the way 
 I code and the knowledge I have about Android development.
@@ -28,6 +28,7 @@ device/emulator running Android 21+ if you want to install it.
 - [RecyclerView:][9] a flexible view for providing a limited window into a large data set.
 - [Picasso:][10] a powerful image downloading and caching library for Android.
 - [Dagger2:][11] is a fully static, compile-time dependency injection framework for both Java and Android.
+- [Room:][12] provides an abstraction layer over SQLite to allow for more robust database access while harnessing the full power of SQLite.
 
 
 [0]: https://developer.android.com/jetpack
@@ -42,14 +43,17 @@ device/emulator running Android 21+ if you want to install it.
 [9]: https://developer.android.com/reference/android/support/v7/widget/RecyclerView
 [10]: https://square.github.io/picasso/
 [11]: https://dagger.dev/
+[12]: https://developer.android.com/jetpack/androidx/releases/room
 
 ## Screenshots
 <p float="left">
-  <img src="https://user-images.githubusercontent.com/9456286/72633336-dcd4f480-391d-11ea-85fc-13cedf81b73a.png" width="250" />
-  <img src="https://user-images.githubusercontent.com/9456286/72633337-dcd4f480-391d-11ea-9a75-4ced89786011.png" width="250" /> 
-  <img src="https://user-images.githubusercontent.com/9456286/72633333-dc3c5e00-391d-11ea-9904-7e3ccb937280.png" width="250" />
+  <img src="https://user-images.githubusercontent.com/9456286/77485085-e7b27680-6df1-11ea-8cf8-db5128655292.png" width="250"/>
+  <img src="https://user-images.githubusercontent.com/9456286/77485093-e97c3a00-6df1-11ea-9600-3c3392273f97.png" width="250"/> 
+  <img src="https://user-images.githubusercontent.com/9456286/77485090-e8e3a380-6df1-11ea-94c0-15f7dfe5315c.png" width="250"/>
+  <img src="https://user-images.githubusercontent.com/9456286/77485089-e84b0d00-6df1-11ea-9349-7a05507a1b95.png" width="250"/>
 </p>
 
 ## Changelog
-- **Jan 10, 2020:** initial commit.
+- **Mar 24, 2020:** implementation of a SQLite database for favorites using Room.
 - **Feb 23, 2020:** implementation of Dependency Injection using Dagger2.
+- **Jan 10, 2020:** initial commit.
