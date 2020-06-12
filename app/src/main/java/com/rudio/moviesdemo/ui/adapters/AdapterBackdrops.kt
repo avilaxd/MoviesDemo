@@ -3,17 +3,23 @@ package com.rudio.moviesdemo.ui.adapters
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.rudio.moviesdemo.R
 import com.rudio.moviesdemo.data.models.Backdrop
+import com.rudio.moviesdemo.databinding.HolderBackdropBinding
 import com.rudio.moviesdemo.ui.adapters.holders.HolderBackdrop
 
 class AdapterBackdrops(
-    private val backdrops: List<Backdrop>
+    private var backdrops: List<Backdrop> = listOf()
 ) : RecyclerView.Adapter<HolderBackdrop>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HolderBackdrop {
-        return HolderBackdrop(LayoutInflater.from(parent.context)
-            .inflate(R.layout.holder_backdrop, parent, false))
+        val layoutInflater = LayoutInflater.from(parent.context)
+        val binding = HolderBackdropBinding.inflate(layoutInflater, parent, false)
+        return HolderBackdrop(binding)
+    }
+
+    fun setBackdrops(backdrops: List<Backdrop>) {
+        this.backdrops = backdrops
+        notifyDataSetChanged()
     }
 
     override fun getItemCount(): Int {

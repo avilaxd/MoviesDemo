@@ -20,6 +20,7 @@ class RepositoryMovies @Inject constructor(
     private val movies: MutableLiveData<List<Movie>> = MutableLiveData()
     private val backdrops: MutableLiveData<List<Backdrop>> = MutableLiveData()
     private val cast: MutableLiveData<List<CastMember>> = MutableLiveData()
+    private val favorites: LiveData<List<Movie>> = daoMovies.getFavorites()
 
     fun getMovies(): LiveData<List<Movie>> = movies
 
@@ -27,13 +28,13 @@ class RepositoryMovies @Inject constructor(
 
     fun getCast(): LiveData<List<CastMember>> = cast
 
-    fun getFavorites(): LiveData<List<Movie>> = daoMovies.getFavorites()
+    fun getFavorites(): LiveData<List<Movie>> = favorites
 
     fun insertFavorite(movie: Movie) = daoMovies.insertFavorite(movie)
 
     fun deleteFavorite(movie: Movie) = daoMovies.deleteFavorite(movie)
 
-    fun isFavorite(id: Int) = daoMovies.isFavorite(id)
+    fun isFavorite(id: Int) = daoMovies.isFavorite(id).isNotEmpty()
 
     fun fetchMovies() {
         serviceTMDB.getMovies(API_KEY).enqueue(object : Callback<ResponseMovies> {

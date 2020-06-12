@@ -22,6 +22,14 @@ class TextViewHelper {
             }
         }
 
+        @SuppressLint("ClickableViewAccessibility")
+        fun disableScroll(textView: TextView) {
+            textView.movementMethod = null
+            textView.setOnTouchListener{ _, _ ->
+                return@setOnTouchListener false
+            }
+        }
+
         private fun shouldScroll(textView: TextView): Boolean {
             return (textView.lineHeight * textView.lineCount) > textView.height
         }

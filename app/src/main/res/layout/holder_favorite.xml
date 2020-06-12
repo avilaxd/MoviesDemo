@@ -1,71 +1,94 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:clickable="true"
-    android:focusable="true"
-    tools:ignore="contentDescription">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <ImageView
-        android:id="@+id/imagePoster"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintDimensionRatio="0.666666"
-        app:layout_constraintVertical_bias="1"
-        android:src="@drawable/placeholder_poster"/>
+    <data>
 
-    <View
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintStart_toStartOf="@id/imagePoster"
-        app:layout_constraintTop_toTopOf="@id/imagePoster"
-        app:layout_constraintEnd_toEndOf="@id/imagePoster"
-        app:layout_constraintBottom_toBottomOf="@id/imagePoster"
-        android:background="@drawable/gradient_poster"/>
+        <variable
+            name="viewModel"
+            type="com.rudio.moviesdemo.viewmodels.ViewModelFavorites"/>
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideTitle"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent=".75"/>
+        <variable
+            name="favorite"
+            type="com.rudio.moviesdemo.data.models.Movie"/>
 
-    <ImageButton
-        android:id="@+id/buttonDelete"
-        android:layout_width="36dp"
-        android:layout_height="36dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        app:layout_constraintEnd_toEndOf="@id/imagePoster"
-        app:layout_constraintTop_toTopOf="@id/imagePoster"
-        android:background="@drawable/votes_background_circle"
-        app:srcCompat="@drawable/ic_close_24dp"/>
+        <variable
+            name="urlPoster"
+            type="String"/>
+    </data>
 
-    <TextView
-        android:id="@+id/textTitle"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintStart_toStartOf="@id/imagePoster"
-        app:layout_constraintTop_toBottomOf="@id/guideTitle"
-        app:layout_constraintBottom_toBottomOf="@id/imagePoster"
-        app:layout_constraintEnd_toEndOf="@id/imagePoster"
-        android:paddingStart="2dp"
-        android:paddingTop="4dp"
-        android:paddingEnd="2dp"
-        android:paddingBottom="4dp"
-        android:gravity="center"
-        android:textAlignment="center"
-        android:textColor="@color/white"
-        android:textSize="14sp"
-        android:fontFamily="sans-serif"
-        android:textStyle="normal"
-        android:maxLines="2"
-        android:ellipsize="end"
-        tools:text="Star Wars: The Rise of Skywalker"/>
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:focusable="true"
+        android:onClick="@{() -> viewModel.onClickMovie(favorite)}"
+        tools:ignore="contentDescription">
+
+        <ImageView
+            android:id="@+id/imagePoster"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="0.666666"
+            app:layout_constraintVertical_bias="1"
+            android:src="@drawable/placeholder_poster"
+            app:url="@{urlPoster}"
+            app:placeholder="@{@drawable/placeholder_poster}"/>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintStart_toStartOf="@id/imagePoster"
+            app:layout_constraintTop_toTopOf="@id/imagePoster"
+            app:layout_constraintEnd_toEndOf="@id/imagePoster"
+            app:layout_constraintBottom_toBottomOf="@id/imagePoster"
+            android:background="@drawable/gradient_poster"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideTitle"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent=".75"/>
+
+        <ImageButton
+            android:id="@+id/buttonDelete"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toEndOf="@id/imagePoster"
+            app:layout_constraintTop_toTopOf="@id/imagePoster"
+            android:background="@drawable/votes_background_circle"
+            app:srcCompat="@drawable/ic_close_24dp"
+            android:onClick="@{() -> viewModel.deleteFavorite(favorite)}"/>
+
+        <TextView
+            android:id="@+id/textTitle"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintStart_toStartOf="@id/imagePoster"
+            app:layout_constraintTop_toBottomOf="@id/guideTitle"
+            app:layout_constraintBottom_toBottomOf="@id/imagePoster"
+            app:layout_constraintEnd_toEndOf="@id/imagePoster"
+            android:paddingStart="2dp"
+            android:paddingTop="4dp"
+            android:paddingEnd="2dp"
+            android:paddingBottom="4dp"
+            android:gravity="center"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            android:fontFamily="sans-serif"
+            android:textStyle="normal"
+            android:maxLines="2"
+            android:ellipsize="end"
+            tools:text="Star Wars: The Rise of Skywalker"
+            android:text="@{favorite.title}"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

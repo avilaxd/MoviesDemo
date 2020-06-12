@@ -3,27 +3,32 @@ package com.rudio.moviesdemo.ui.adapters
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.rudio.moviesdemo.R
 import com.rudio.moviesdemo.data.models.Movie
-import com.rudio.moviesdemo.interfaces.OnClickMovie
-import com.rudio.moviesdemo.interfaces.OnDeleteMovie
+import com.rudio.moviesdemo.databinding.HolderFavoriteBinding
 import com.rudio.moviesdemo.ui.adapters.holders.HolderFavorite
+import com.rudio.moviesdemo.viewmodels.ViewModelFavorites
 
 class AdapterFavorites(
-    private val movies: List<Movie>,
-    private val onClickMovie: OnClickMovie,
-    private val onDeleteMovie: OnDeleteMovie
+    private val viewModel: ViewModelFavorites,
+    private var favorites: List<Movie> = listOf()
 ) : RecyclerView.Adapter<HolderFavorite>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HolderFavorite {
-        return HolderFavorite(LayoutInflater.from(parent.context).inflate(R.layout.holder_favorite, parent, false), onClickMovie, onDeleteMovie)
+        val layoutInflater = LayoutInflater.from(parent.context)
+        val binding = HolderFavoriteBinding.inflate(layoutInflater, parent, false)
+        return HolderFavorite(binding)
+    }
+
+    fun setFavorites(favorites: List<Movie>) {
+        this.favorites = favorites
+        notifyDataSetChanged()
     }
 
     override fun getItemCount(): Int {
-        return movies.size
+        return favorites.size
     }
 
     override fun onBindViewHolder(holder: HolderFavorite, position: Int) {
-        holder.onBind(movies[position])
+        holder.onBind(viewModel, favorites[position])
     }
 }

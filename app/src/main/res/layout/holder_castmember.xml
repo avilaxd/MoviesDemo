@@ -1,62 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
-    android:layout_height="match_parent"
-    tools:ignore="contentDescription">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <ImageView
-        android:id="@+id/imagePicture"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/textNameActor"
-        app:layout_constraintDimensionRatio=".6654"
-        android:scaleType="centerCrop"
-        android:src="@drawable/placeholder_poster"/>
+    <data>
 
-    <TextView
-        android:id="@+id/textNameActor"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:paddingStart="4dp"
-        android:paddingEnd="4dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/textNameCharacter"
-        app:layout_constraintDimensionRatio="32:7"
-        android:gravity="bottom"
-        android:textAlignment="center"
-        android:textColor="@color/orangeAccent"
-        android:textSize="14sp"
-        android:fontFamily="sans-serif"
-        android:textStyle="normal"
-        android:maxLines="1"
-        android:ellipsize="end"
-        android:background="@color/grayMainDark"
-        tools:text="Zoro Sato Manuel Daghlian"/>
+        <variable
+            name="castMember"
+            type="com.rudio.moviesdemo.data.models.CastMember"/>
 
-    <TextView
-        android:id="@+id/textNameCharacter"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:paddingStart="4dp"
-        android:paddingEnd="4dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintDimensionRatio="32:7"
-        android:gravity="top"
-        android:textAlignment="center"
-        android:textColor="@color/white"
-        android:textSize="14sp"
-        android:fontFamily="sans-serif"
-        android:textStyle="normal"
-        android:maxLines="1"
-        android:ellipsize="end"
-        android:background="@color/grayMainDark"
-        tools:text="Zoro Sato Manuel Daghlian"/>
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <variable
+            name="urlCast"
+            type="String"/>
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        tools:ignore="contentDescription">
+
+        <ImageView
+            android:id="@+id/imagePicture"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/textNameActor"
+            app:layout_constraintDimensionRatio=".6654"
+            android:scaleType="centerCrop"
+            android:src="@drawable/placeholder_poster"
+            app:url="@{urlCast}"
+            app:placeholder="@{@drawable/placeholder_poster}"/>
+
+        <TextView
+            android:id="@+id/textNameActor"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:paddingStart="4dp"
+            android:paddingEnd="4dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/textNameCharacter"
+            app:layout_constraintDimensionRatio="32:7"
+            android:gravity="bottom"
+            android:textAlignment="center"
+            android:textColor="@color/orangeAccent"
+            android:textSize="14sp"
+            android:fontFamily="sans-serif"
+            android:textStyle="normal"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:background="@color/grayMainDark"
+            android:text="@{castMember.nameActor}"
+            tools:text="Zoro Sato Manuel Daghlian"/>
+
+        <TextView
+            android:id="@+id/textNameCharacter"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:paddingStart="4dp"
+            android:paddingEnd="4dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="32:7"
+            android:gravity="top"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            android:fontFamily="sans-serif"
+            android:textStyle="normal"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:background="@color/grayMainDark"
+            android:text="@{castMember.nameCharacter}"
+            tools:text="Zoro Sato Manuel Daghlian"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
