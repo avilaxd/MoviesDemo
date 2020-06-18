@@ -1,14 +1,17 @@
-package com.rudio.moviesdemo.di.modules
+package com.rudio.moviesdemo.di
 
 import com.rudio.moviesdemo.networking.ServiceTMDB
 import com.rudio.moviesdemo.utils.BASE_URL_API
 import dagger.Module
 import dagger.Provides
+import dagger.hilt.InstallIn
+import dagger.hilt.android.components.ApplicationComponent
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
 
 @Module
+@InstallIn(ApplicationComponent::class)
 class ModuleNetwork {
 
     @Singleton

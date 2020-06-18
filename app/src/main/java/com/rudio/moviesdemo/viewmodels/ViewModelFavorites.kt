@@ -1,16 +1,14 @@
 package com.rudio.moviesdemo.viewmodels
 
+import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.rudio.moviesdemo.data.models.Movie
 import com.rudio.moviesdemo.data.repositories.RepositoryMovies
 import com.rudio.moviesdemo.utils.Event
-import javax.inject.Inject
-import javax.inject.Singleton
 
-@Singleton
-class ViewModelFavorites @Inject constructor(
+class ViewModelFavorites @ViewModelInject constructor(
     private val repositoryMovies: RepositoryMovies
 ) : ViewModel() {
     private val eventOnClickMovie: MutableLiveData<Event<Movie>> = MutableLiveData()

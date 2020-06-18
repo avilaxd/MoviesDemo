@@ -1,11 +1,7 @@
 package com.rudio.moviesdemo.ui
 
 import android.app.Application
-import com.rudio.moviesdemo.di.AppComponent
-import com.rudio.moviesdemo.di.DaggerAppComponent
+import dagger.hilt.android.HiltAndroidApp
 
-class AppMain : Application() {
-    val appComponent: AppComponent by lazy {
-        DaggerAppComponent.factory().create(applicationContext)
-    }
-}
+@HiltAndroidApp
+class AppMain : Application()

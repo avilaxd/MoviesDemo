@@ -1,5 +1,6 @@
 package com.rudio.moviesdemo.viewmodels
 
+import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -9,9 +10,8 @@ import com.rudio.moviesdemo.data.models.Movie
 import com.rudio.moviesdemo.data.repositories.RepositoryMovies
 import com.rudio.moviesdemo.utils.Event
 import com.rudio.moviesdemo.utils.prependPosterPath
-import javax.inject.Inject
 
-class ViewModelMovieDetail @Inject constructor(
+class ViewModelMovieDetail @ViewModelInject constructor(
     private val repositoryMovies: RepositoryMovies
 ) : ViewModel() {
     private val movie: MutableLiveData<Movie> = MutableLiveData()

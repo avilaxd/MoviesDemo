@@ -1,36 +1,27 @@
 package com.rudio.moviesdemo.ui.fragments
 
-import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import com.rudio.moviesdemo.R
 import com.rudio.moviesdemo.data.models.Movie
 import com.rudio.moviesdemo.databinding.FragmentMovieDetailBinding
 import com.rudio.moviesdemo.ui.adapters.AdapterBackdrops
 import com.rudio.moviesdemo.ui.adapters.AdapterCast
 import com.rudio.moviesdemo.ui.adapters.itemdecorators.ItemDecorationCast
-import com.rudio.moviesdemo.utils.getAppComponent
-import com.rudio.moviesdemo.viewmodels.ViewModelFactory
 import com.rudio.moviesdemo.viewmodels.ViewModelMovieDetail
-import javax.inject.Inject
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class FragmentMovieDetail : Fragment() {
-    @Inject lateinit var viewModelFactory: ViewModelFactory
     private lateinit var movie: Movie
-    private lateinit var viewModel: ViewModelMovieDetail
+    private val viewModel: ViewModelMovieDetail by viewModels()
     private lateinit var binding: FragmentMovieDetailBinding
-
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-        getAppComponent().inject(this)
-        viewModel = ViewModelProvider(this, viewModelFactory)[ViewModelMovieDetail::class.java]
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
