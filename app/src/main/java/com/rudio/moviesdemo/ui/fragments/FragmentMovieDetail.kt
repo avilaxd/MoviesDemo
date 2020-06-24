@@ -36,13 +36,13 @@ class FragmentMovieDetail : Fragment() {
         binding.itemDecoration = ItemDecorationCast()
         binding.recyclerCast.adapter = AdapterCast()
         binding.pagerImages.adapter = AdapterBackdrops()
-        setToggleFavorite(viewModel.isFavorite(movie.id))
         return binding.root
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         startObserving()
+        viewModel.fetchIsFavorite(movie.id)
         viewModel.fetchBackdrops(movie.id)
         viewModel.fetchCast(movie.id)
     }
@@ -53,18 +53,8 @@ class FragmentMovieDetail : Fragment() {
         })
     }
 
-    private fun setToggleFavorite(isChecked: Boolean) {
-        binding.toggleFavorite.isChecked = isChecked
-    }
-
-    private fun isFavoriteChecked(): Boolean {
-        return binding.toggleFavorite.isChecked
-    }
-
     private fun setFavorite(movie: Movie) {
-        //It uses '!' because it first dispatches the click to the normal
-        //behaviour of the toggle changing it's "isChecked" state
-        if (!isFavoriteChecked()) {
+        if (viewModel.getIsFavorite().value == true) {
             viewModel.deleteFavorite(movie)
         } else {
             viewModel.insertFavorite(movie)

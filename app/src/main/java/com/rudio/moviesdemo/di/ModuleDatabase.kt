@@ -21,7 +21,7 @@ class ModuleDatabase {
         return Room.databaseBuilder(
             context,
             DatabaseMovies::class.java,
-            "database_movies").allowMainThreadQueries().build()
+            "database_movies").build()
     }
 
     @Singleton

@@ -6,9 +6,6 @@ import com.rudio.moviesdemo.data.database.DaoMovie
 import com.rudio.moviesdemo.data.models.*
 import com.rudio.moviesdemo.networking.ServiceTMDB
 import com.rudio.moviesdemo.utils.API_KEY
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -30,45 +27,36 @@ class RepositoryMovies @Inject constructor(
 
     fun getFavorites(): LiveData<List<Movie>> = favorites
 
-    fun insertFavorite(movie: Movie) = daoMovies.insertFavorite(movie)
+    suspend fun insertFavorite(movie: Movie) = daoMovies.insertFavorite(movie)
 
-    fun deleteFavorite(movie: Movie) = daoMovies.deleteFavorite(movie)
+    suspend fun deleteFavorite(movie: Movie) = daoMovies.deleteFavorite(movie)
 
-    fun isFavorite(id: Int) = daoMovies.isFavorite(id).isNotEmpty()
+    suspend fun isFavorite(id: Int) = daoMovies.isFavorite(id).isNotEmpty()
 
-    fun fetchMovies() {
-        serviceTMDB.getMovies(API_KEY).enqueue(object : Callback<ResponseMovies> {
-            override fun onResponse(call: Call<ResponseMovies>, response: Response<ResponseMovies>) {
-                    movies.value = response.body()?.movies ?: listOf()
-             }
-
-            override fun onFailure(call: Call<ResponseMovies>, t: Throwable) {
-                t.printStackTrace()
-            }
-        })
+    suspend fun fetchMovies() {
+        try {
+            val response = serviceTMDB.getMovies(API_KEY)
+            movies.value = response.movies
+        } catch (throwable: Throwable) {
+            throwable.printStackTrace()
+        }
     }
 
-    fun fetchBackdrops(id: Int) {
-        serviceTMDB.getBackdrops(id, API_KEY).enqueue(object : Callback<ResponseBackdrops> {
-            override fun onResponse(call: Call<ResponseBackdrops>, response: Response<ResponseBackdrops>) {
-                backdrops.value = response.body()?.backdrops ?: listOf()
-            }
-
-            override fun onFailure(call: Call<ResponseBackdrops>, t: Throwable) {
-                t.printStackTrace()
-            }
-        })
+    suspend fun fetchBackdrops(id: Int) {
+        try {
+            val response = serviceTMDB.getBackdrops(id, API_KEY)
+            backdrops.value = response.backdrops
+        } catch (throwable: Throwable) {
+            throwable.printStackTrace()
+        }
     }
 
-    fun fetchCast(id: Int) {
-        serviceTMDB.getCast(id, API_KEY).enqueue(object : Callback<ResponseCast> {
-            override fun onResponse(call: Call<ResponseCast>, response: Response<ResponseCast>) {
-                cast.value = response.body()?.cast ?: listOf()
-            }
-
-            override fun onFailure(call: Call<ResponseCast>, t: Throwable) {
-                t.printStackTrace()
-            }
-        })
+    suspend fun fetchCast(id: Int) {
+        try {
+            val response = serviceTMDB.getCast(id, API_KEY)
+            cast.value = response.cast
+        } catch (throwable: Throwable) {
+            throwable.printStackTrace()
+        }
     }
 }

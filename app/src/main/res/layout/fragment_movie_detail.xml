@@ -90,7 +90,8 @@
                 android:background="@drawable/selector_favorite"
                 android:textOff=""
                 android:textOn=""
-                android:onClick="@{() -> viewModel.onClickFavorite()}"/>
+                android:onClick="@{() -> viewModel.onClickFavorite()}"
+                android:checked="@{viewModel.isFavorite}"/>
 
             <androidx.constraintlayout.widget.Barrier
                 android:id="@+id/barrierTitle"
