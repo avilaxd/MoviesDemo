@@ -23,14 +23,15 @@ device/emulator running Android 21+ if you want to install it.
   - [ViewModel:][3] stores and manage UI-related data in a lifecycle conscious way.
   - [ViewPager2:][4] improved version of the ViewPager library.
   - [AndroidX][5] an improvement to the [Support Library][6].
+  - [RecyclerView:][9] a flexible view for providing a limited window into a large data set.
+  - [Room:][12] provides an abstraction layer over SQLite to allow for more robust database access while harnessing the full power of SQLite.
+  - [Databinding:][13] bind UI components in your layouts to data sources in your app using a declarative format.
+  - [Hilt:][14] is a dependency injection library for Android that reduces the boilerplate of doing manual dependency injection in your project.
 - [Retrofit:][7] a type-safe HTTP client.
 - [ConstraintLayout:][8] a ViewGroup that allows you to position and size widgets in a flexible way.
-- [RecyclerView:][9] a flexible view for providing a limited window into a large data set.
 - [Picasso:][10] a powerful image downloading and caching library for Android.
 - [Dagger2:][11] is a fully static, compile-time dependency injection framework for both Java and Android.
-- [Room:][12] provides an abstraction layer over SQLite to allow for more robust database access while harnessing the full power of SQLite.
-- [Databinding:][13] bind UI components in your layouts to data sources in your app using a declarative format.
-- [Hilt:][14] is a dependency injection library for Android that reduces the boilerplate of doing manual dependency injection in your project.
+- [Coroutines:][15] is a concurrency design pattern that you can use on Android to simplify code that executes asynchronously.
 
 
 [0]: https://developer.android.com/jetpack
@@ -48,6 +49,7 @@ device/emulator running Android 21+ if you want to install it.
 [12]: https://developer.android.com/jetpack/androidx/releases/room
 [13]: https://developer.android.com/jetpack/androidx/releases/databinding
 [14]: https://developer.android.com/training/dependency-injection/hilt-android
+[15]: https://developer.android.com/kotlin/coroutines
 
 ## Screenshots
 <p float="left">
@@ -58,6 +60,7 @@ device/emulator running Android 21+ if you want to install it.
 </p>
 
 ## Changelog
+- **Jun 24, 2020:** implementation of Coroutines.
 - **Jun 17, 2020:** migrating dependency injection from Dagger to Hilt.
 - **Jun 12, 2020:** implementation of Databinding with Android Jetpack.
 - **Mar 24, 2020:** implementation of a SQLite database for favorites using Room.
