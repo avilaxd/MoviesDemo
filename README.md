@@ -60,6 +60,7 @@ device/emulator running Android 21+ if you want to install it.
 </p>
 
 ## Changelog
+- **Aug 2, 2020:** removing LiveData from inner layers (Repository) to use it only on outer layers (Fragments, ViewModels).
 - **Jun 24, 2020:** implementation of Coroutines.
 - **Jun 17, 2020:** migrating dependency injection from Dagger to Hilt.
 - **Jun 12, 2020:** implementation of Databinding with Android Jetpack.

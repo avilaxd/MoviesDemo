@@ -38,6 +38,9 @@ class FragmentFavorites : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         startObserving()
+        if (viewModel.getFavorites().value == null) {
+            viewModel.fetchFavorites()
+        }
     }
 
     private fun startObserving() {

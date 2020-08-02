@@ -19,6 +19,8 @@ class ViewModelMovieDetail @ViewModelInject constructor(
     private val movie: MutableLiveData<Movie> = MutableLiveData()
     private val eventOnClickFavorite: MutableLiveData<Event<Movie>> = MutableLiveData()
     private val isFavorite: MutableLiveData<Boolean> = MutableLiveData()
+    private val backdrops: MutableLiveData<List<Backdrop>> = MutableLiveData()
+    private val cast: MutableLiveData<List<CastMember>> = MutableLiveData()
 
     fun getMovie(): LiveData<Movie> = movie
 
@@ -26,7 +28,9 @@ class ViewModelMovieDetail @ViewModelInject constructor(
 
     fun getEventOnClickFavorite(): LiveData<Event<Movie>> = eventOnClickFavorite
 
-    fun getBackdrops(): LiveData<List<Backdrop>> = repositoryMovies.getBackdrops()
+    fun getBackdrops(): LiveData<List<Backdrop>> = backdrops
+
+    fun getCast(): LiveData<List<CastMember>> = cast
 
     fun getIsFavorite(): LiveData<Boolean> = isFavorite
 
@@ -41,16 +45,16 @@ class ViewModelMovieDetail @ViewModelInject constructor(
     }
 
     fun fetchIsFavorite(id: Int) = viewModelScope.launch {
-        isFavorite.value = repositoryMovies.isFavorite(id)
+        isFavorite.value = repositoryMovies.isFavorite(id) > 0
     }
 
     fun fetchBackdrops(id: Int) = viewModelScope.launch {
-        repositoryMovies.fetchBackdrops(id)
+        backdrops.value = repositoryMovies.getBackdrops(id).backdrops
     }
 
-    fun getCast(): LiveData<List<CastMember>> = repositoryMovies.getCast()
-
-    fun fetchCast(id: Int) = viewModelScope.launch { repositoryMovies.fetchCast(id) }
+    fun fetchCast(id: Int) = viewModelScope.launch {
+        cast.value = repositoryMovies.getCast(id).cast
+    }
 
     fun urlPoster(): String = movie.value?.poster?.prependPosterPath() ?: ""
 

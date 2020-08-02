@@ -1,8 +1,8 @@
 package com.rudio.moviesdemo.data.database
 
-import androidx.lifecycle.LiveData
 import androidx.room.*
 import com.rudio.moviesdemo.data.models.Movie
+import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface DaoMovie {
@@ -14,8 +14,8 @@ interface DaoMovie {
     suspend fun deleteFavorite(movie: Movie)
 
     @Query("SELECT * FROM movie")
-    fun getFavorites(): LiveData<List<Movie>>
+    fun getFavorites(): Flow<List<Movie>>
 
-    @Query("SELECT * FROM movie WHERE id = :id")
-    suspend fun isFavorite(id: Int): List<Movie>
+    @Query("SELECT count(*) FROM movie WHERE id = :id")
+    suspend fun isFavorite(id: Int): Int
 }
