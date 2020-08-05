@@ -11,7 +11,7 @@ class HolderCastMember(
 
     fun onBind(castMember: CastMember) {
         binding.castMember = castMember
-        binding.urlCast = castMember.picture?.prependCastPath()
+        binding.urlCast = castMember.picture.prependCastPath()
         binding.executePendingBindings()
     }
 }

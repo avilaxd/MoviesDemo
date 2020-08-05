@@ -11,7 +11,7 @@ class HolderBackdrop(
 ) : RecyclerView.ViewHolder(binding.root) {
 
     fun onBind(backdrop: Backdrop) {
-        binding.urlBackdrop = backdrop.path?.prependBackdropPath()
+        binding.urlBackdrop = backdrop.path.prependBackdropPath()
         binding.executePendingBindings()
     }
 }

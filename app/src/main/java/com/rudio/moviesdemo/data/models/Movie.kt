@@ -4,32 +4,34 @@ import android.os.Parcelable
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.google.gson.annotations.SerializedName
+import com.squareup.moshi.Json
+import com.squareup.moshi.JsonClass
 import kotlinx.android.parcel.Parcelize
 
 @Entity
 @Parcelize
+@JsonClass(generateAdapter = true)
 data class Movie(
     @PrimaryKey
     @ColumnInfo(name = "id")
-    @SerializedName("id")
+    @Json(name = "id")
     val id: Int = 0,
     @ColumnInfo(name = "vote_average")
-    @SerializedName("vote_average")
-    val votesAverage: Float = 0F,
+    @Json(name = "vote_average")
+    val votesAverage: Double = 0.0,
     @ColumnInfo(name = "title")
-    @SerializedName("title")
+    @Json(name = "title")
     val title: String = "",
     @ColumnInfo(name = "release_date")
-    @SerializedName("release_date")
+    @Json(name = "release_date")
     val date: String = "",
     @ColumnInfo(name = "original_language")
-    @SerializedName("original_language")
-    val language: String = "en",
+    @Json(name = "original_language")
+    val language: String = "",
     @ColumnInfo(name = "overview")
-    @SerializedName("overview")
+    @Json(name = "overview")
     val overview: String = "",
     @ColumnInfo(name = "poster_path")
-    @SerializedName("poster_path")
-    val poster: String? = null
+    @Json(name = "poster_path")
+    val poster: String = ""
 ) : Parcelable

@@ -74,7 +74,7 @@
             android:maxLines="1"
             android:ellipsize="end"
             tools:text="9.9"
-            android:text="@{String.valueOf(movie.votesAverage)}"/>
+            android:text="@{movie.votesAverage}"/>
 
         <TextView
             android:id="@+id/textTitle"

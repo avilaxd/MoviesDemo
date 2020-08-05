@@ -19,7 +19,7 @@ import com.rudio.moviesdemo.utils.PicassoHelper
 import com.rudio.moviesdemo.utils.TextViewHelper
 
 @BindingAdapter("android:text")
-fun setText(textView: TextView, value: Float) {
+fun setText(textView: TextView, value: Double) {
     textView.text = value.toString()
 }
 

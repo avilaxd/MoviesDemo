@@ -13,7 +13,7 @@ class HolderMovie(
     fun onBind(viewModel: ViewModelMovies, movie: Movie) {
         binding.viewModel = viewModel
         binding.movie = movie
-        binding.urlPoster = movie.poster?.prependPosterPath()
+        binding.urlPoster = movie.poster.prependPosterPath()
         binding.executePendingBindings()
     }
 }

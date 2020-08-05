@@ -13,7 +13,7 @@ class HolderFavorite(
     fun onBind(viewModel: ViewModelFavorites, favorite: Movie) {
         binding.viewModel = viewModel
         binding.favorite = favorite
-        binding.urlPoster = favorite.poster?.prependPosterPath()
+        binding.urlPoster = favorite.poster.prependPosterPath()
         binding.executePendingBindings()
     }
 }

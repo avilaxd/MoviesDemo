@@ -1,17 +1,19 @@
 package com.rudio.moviesdemo.data.models
 
 import android.os.Parcelable
-import com.google.gson.annotations.SerializedName
+import com.squareup.moshi.Json
+import com.squareup.moshi.JsonClass
 import kotlinx.android.parcel.Parcelize
 
 @Parcelize
+@JsonClass(generateAdapter = true)
 data class ResponseMovies(
-    @SerializedName("page")
+    @Json(name = "page")
     val page: Int = 0,
-    @SerializedName("total_results")
+    @Json(name = "total_results")
     val resultsTotal: Int = 0,
-    @SerializedName("total_pages")
+    @Json(name = "total_pages")
     val pagesTotal: Int = 0,
-    @SerializedName("results")
+    @Json(name = "results")
     val movies: List<Movie> = listOf()
 ) : Parcelable

@@ -1,17 +1,19 @@
 package com.rudio.moviesdemo.data.models
 
 import android.os.Parcelable
-import com.google.gson.annotations.SerializedName
+import com.squareup.moshi.Json
+import com.squareup.moshi.JsonClass
 import kotlinx.android.parcel.Parcelize
 
 @Parcelize
+@JsonClass(generateAdapter = true)
 data class CastMember(
-    @SerializedName("id")
+    @Json(name = "id")
     val id: Int = 0,
-    @SerializedName("name")
+    @Json(name = "name")
     val nameActor: String = "",
-    @SerializedName("character")
+    @Json(name = "character")
     val nameCharacter: String = "",
-    @SerializedName("profile_path")
-    val picture: String? = null
+    @Json(name = "profile_path")
+    val picture: String = ""
 ) : Parcelable
