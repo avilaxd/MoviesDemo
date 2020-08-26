@@ -60,6 +60,7 @@ device/emulator running Android 21+ if you want to install it.
 </p>
 
 ## Changelog
+- **Aug 25, 2020:** implementing buildSrc plugin to manage Gradle using Kotlin.
 - **Aug 4, 2020:** migrating Retrofit's converter from GSON to Moshi.
 - **Aug 2, 2020:** removing LiveData from inner layers (Repository) to use it only on outer layers (Fragments, ViewModels).
 - **Jun 24, 2020:** implementation of Coroutines.
