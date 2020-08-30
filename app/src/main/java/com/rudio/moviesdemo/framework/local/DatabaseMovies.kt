@@ -1,0 +1,12 @@
+package com.rudio.moviesdemo.framework.local
+
+import androidx.room.Database
+import androidx.room.RoomDatabase
+import com.rudio.moviesdemo.framework.local.DaoMovie
+import com.rudio.moviesdemo.presentation.models.Movie
+
+@Database(entities = [Movie::class], version = 1, exportSchema = false)
+abstract class DatabaseMovies : RoomDatabase() {
+
+    abstract fun daoMovie(): DaoMovie
+}

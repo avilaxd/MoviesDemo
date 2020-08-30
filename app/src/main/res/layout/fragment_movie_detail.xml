@@ -7,11 +7,11 @@
 
         <variable
             name="viewModel"
-            type="com.rudio.moviesdemo.viewmodels.ViewModelMovieDetail"/>
+            type="com.rudio.moviesdemo.presentation.features.moviedetail.ViewModelMovieDetail"/>
 
         <variable
             name="itemDecoration"
-            type="com.rudio.moviesdemo.ui.adapters.itemdecorators.ItemDecorationCast"/>
+            type="com.rudio.moviesdemo.presentation.utils.ItemDecorationCast"/>
     </data>
 
     <androidx.core.widget.NestedScrollView

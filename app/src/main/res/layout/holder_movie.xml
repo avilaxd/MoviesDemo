@@ -11,11 +11,11 @@
 
         <variable
             name="viewModel"
-            type="com.rudio.moviesdemo.viewmodels.ViewModelMovies"/>
+            type="com.rudio.moviesdemo.presentation.features.movies.ViewModelMovies"/>
 
         <variable
             name="movie"
-            type="com.rudio.moviesdemo.data.models.Movie"/>
+            type="com.rudio.moviesdemo.domain.models.IMovie"/>
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

@@ -7,11 +7,11 @@
 
         <variable
             name="viewModel"
-            type="com.rudio.moviesdemo.viewmodels.ViewModelFavorites"/>
+            type="com.rudio.moviesdemo.presentation.features.favorites.ViewModelFavorites"/>
 
         <variable
             name="favorite"
-            type="com.rudio.moviesdemo.data.models.Movie"/>
+            type="com.rudio.moviesdemo.domain.models.IMovie"/>
 
         <variable
             name="urlPoster"

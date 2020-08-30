@@ -3,10 +3,12 @@ import org.gradle.api.JavaVersion
 object Plugins {
     const val application = "com.android.application"
     const val kotlinAndroid = "kotlin-android"
-    const val kotlinAndroidExtentions = "kotlin-android-extensions"
+    const val kotlinAndroidExtensions = "kotlin-android-extensions"
     const val navigationSageArgs= "androidx.navigation.safeargs.kotlin"
     const val kotlinKapt = "kotlin-kapt"
     const val hilt = "dagger.hilt.android.plugin"
+    const val kotlin = "kotlin"
+    const val javaLibrary = "java-library"
 }
 
 object Android {
@@ -29,39 +31,40 @@ object Android {
 }
 
 object Dependencies {
-    val gradle = "com.android.tools.build:gradle:${Versions.gradle}"
-    val kotlinGradle= "org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.kotlin}"
-    val navigationSafeArgsGradle = "androidx.navigation:navigation-safe-args-gradle-plugin:${Versions.navigation}"
-    val hiltGradle = "com.google.dagger:hilt-android-gradle-plugin:${Versions.hilt}"
+    const val gradle = "com.android.tools.build:gradle:${Versions.gradle}"
+    const val kotlinGradle= "org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.kotlin}"
+    const val navigationSafeArgsGradle = "androidx.navigation:navigation-safe-args-gradle-plugin:${Versions.navigation}"
+    const val hiltGradle = "com.google.dagger:hilt-android-gradle-plugin:${Versions.hilt}"
 
-    val kotlin = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${Versions.kotlin}"
-    val appCompat = "androidx.appcompat:appcompat:1.2.0"
-    val coreKtx = "androidx.core:core-ktx:1.3.1"
-    val constraintLayout = "androidx.constraintlayout:constraintlayout:1.1.3"
-    val recyclerView = "androidx.recyclerview:recyclerview:1.1.0"
-    val navigationFragment = "androidx.navigation:navigation-fragment-ktx:${Versions.navigation}"
-    val navigationUi = "androidx.navigation:navigation-ui-ktx:${Versions.navigation}"
-    val viewPager = "androidx.viewpager2:viewpager2:1.0.0"
-    val material = "com.google.android.material:material:1.3.0-alpha02"
-    val jUnit = "junit:junit:4.13"
-    val jUnitAndroid = "androidx.test.ext:junit:1.1.1"
-    val espressoAndroid = "androidx.test.espresso:espresso-core:3.2.0"
-    val retrofit = "com.squareup.retrofit2:retrofit:${Versions.retrofit}"
-    val moshiRetrofit = "com.squareup.retrofit2:converter-moshi:${Versions.retrofit}"
-    val moshi = "com.squareup.moshi:moshi:${Versions.moshi}"
-    val moshiCodegenKapt = "com.squareup.moshi:moshi-kotlin-codegen:${Versions.moshi}"
-    val picasso = "com.squareup.picasso:picasso:2.71828"
-    val hilt = "com.google.dagger:hilt-android:${Versions.hilt}"
-    val hiltAndroidCompilerKapt = "com.google.dagger:hilt-android-compiler:${Versions.hilt}"
-    val hiltViewModel = "androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha02"
-    val hiltCompilerKapt = "androidx.hilt:hilt-compiler:1.0.0-alpha02"
-    val roomRuntime = "androidx.room:room-runtime:${Versions.room}"
-    val roomKtx = "androidx.room:room-ktx:${Versions.room}"
-    val roomCompilerKapt = "androidx.room:room-compiler:${Versions.room}"
-    val viewModel = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.lifecycle}"
-    val liveData = "androidx.lifecycle:lifecycle-livedata-ktx:${Versions.lifecycle}"
-    val coroutinesCore = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.coroutines}"
-    val coroutinesAndroid = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.coroutines}"
+    val fileTree = mapOf("dir" to "libs", "include" to "*.jar")
+    const val kotlin = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${Versions.kotlin}"
+    const val appCompat = "androidx.appcompat:appcompat:1.2.0"
+    const val coreKtx = "androidx.core:core-ktx:1.3.1"
+    const val constraintLayout = "androidx.constraintlayout:constraintlayout:1.1.3"
+    const val recyclerView = "androidx.recyclerview:recyclerview:1.1.0"
+    const val navigationFragment = "androidx.navigation:navigation-fragment-ktx:${Versions.navigation}"
+    const val navigationUi = "androidx.navigation:navigation-ui-ktx:${Versions.navigation}"
+    const val viewPager = "androidx.viewpager2:viewpager2:1.0.0"
+    const val material = "com.google.android.material:material:1.3.0-alpha02"
+    const val jUnit = "junit:junit:4.13"
+    const val jUnitAndroid = "androidx.test.ext:junit:1.1.1"
+    const val espressoAndroid = "androidx.test.espresso:espresso-core:3.2.0"
+    const val retrofit = "com.squareup.retrofit2:retrofit:${Versions.retrofit}"
+    const val moshiRetrofit = "com.squareup.retrofit2:converter-moshi:${Versions.retrofit}"
+    const val moshi = "com.squareup.moshi:moshi:${Versions.moshi}"
+    const val moshiCodegenKapt = "com.squareup.moshi:moshi-kotlin-codegen:${Versions.moshi}"
+    const val picasso = "com.squareup.picasso:picasso:2.71828"
+    const val hilt = "com.google.dagger:hilt-android:${Versions.hilt}"
+    const val hiltAndroidCompilerKapt = "com.google.dagger:hilt-android-compiler:${Versions.hilt}"
+    const val hiltViewModel = "androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha02"
+    const val hiltCompilerKapt = "androidx.hilt:hilt-compiler:1.0.0-alpha02"
+    const val roomRuntime = "androidx.room:room-runtime:${Versions.room}"
+    const val roomKtx = "androidx.room:room-ktx:${Versions.room}"
+    const val roomCompilerKapt = "androidx.room:room-compiler:${Versions.room}"
+    const val viewModel = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.lifecycle}"
+    const val liveData = "androidx.lifecycle:lifecycle-livedata-ktx:${Versions.lifecycle}"
+    const val coroutinesCore = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.coroutines}"
+    const val coroutinesAndroid = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.coroutines}"
 }
 
 object Versions {
@@ -74,4 +77,10 @@ object Versions {
     const val coroutines = "1.3.7"
     const val lifecycle = "2.2.0"
     const val moshi = "1.9.3"
+}
+
+object Modules {
+    const val app = ":app"
+    const val data = ":data"
+    const val domain = ":domain"
 }

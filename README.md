@@ -32,6 +32,7 @@ device/emulator running Android 21+ if you want to install it.
 - [Picasso:][10] a powerful image downloading and caching library for Android.
 - [Dagger2:][11] is a fully static, compile-time dependency injection framework for both Java and Android.
 - [Coroutines:][15] is a concurrency design pattern that you can use on Android to simplify code that executes asynchronously.
+- [Clean Architecture:][16] is a software architecture proposed by Robert C. Martin (better known as Uncle Bob).
 
 
 [0]: https://developer.android.com/jetpack
@@ -50,6 +51,7 @@ device/emulator running Android 21+ if you want to install it.
 [13]: https://developer.android.com/jetpack/androidx/releases/databinding
 [14]: https://developer.android.com/training/dependency-injection/hilt-android
 [15]: https://developer.android.com/kotlin/coroutines
+[16]: https://stackoverflow.com/tags/clean-architecture/info
 
 ## Screenshots
 <p float="left">
@@ -60,6 +62,7 @@ device/emulator running Android 21+ if you want to install it.
 </p>
 
 ## Changelog
+- **Aug 30, 2020:** implementing Clean Architecture to the project.
 - **Aug 25, 2020:** implementing buildSrc plugin to manage Gradle using Kotlin.
 - **Aug 4, 2020:** migrating Retrofit's converter from GSON to Moshi.
 - **Aug 2, 2020:** removing LiveData from inner layers (Repository) to use it only on outer layers (Fragments, ViewModels).

@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/fragmentMain"
-        android:name="com.rudio.moviesdemo.ui.fragments.FragmentMain"
+        android:name="com.rudio.moviesdemo.presentation.features.main.FragmentMain"
         android:label="FragmentMain"
         tools:layout="@layout/fragment_main">
 
@@ -18,24 +18,24 @@
 
     <fragment
         android:id="@+id/fragmentMovies"
-        android:name="com.rudio.moviesdemo.ui.fragments.FragmentMovies"
+        android:name="com.rudio.moviesdemo.presentation.features.movies.FragmentMovies"
         android:label="FragmentMovies"
         tools:layout="@layout/fragment_movies"/>
 
     <fragment
         android:id="@+id/fragmentMovieDetail"
-        android:name="com.rudio.moviesdemo.ui.fragments.FragmentMovieDetail"
+        android:name="com.rudio.moviesdemo.presentation.features.moviedetail.FragmentMovieDetail"
         android:label="FragmentMovieDetail"
         tools:layout="@layout/fragment_movie_detail">
 
         <argument
             android:name="movie"
-            app:argType="com.rudio.moviesdemo.data.models.Movie"/>
+            app:argType="com.rudio.moviesdemo.presentation.models.Movie"/>
     </fragment>
 
     <fragment
         android:id="@+id/fragmentFavorites"
-        android:name="com.rudio.moviesdemo.ui.fragments.FragmentFavorites"
+        android:name="com.rudio.moviesdemo.presentation.features.favorites.FragmentFavorites"
         android:label="FragmentFavorites"
         tools:layout="@layout/fragment_favorite"/>
 </navigation>

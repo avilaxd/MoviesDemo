@@ -1,7 +1,7 @@
 plugins {
     id(Plugins.application)
     id(Plugins.kotlinAndroid)
-    id(Plugins.kotlinAndroidExtentions)
+    id(Plugins.kotlinAndroidExtensions)
     id(Plugins.navigationSageArgs)
     id(Plugins.kotlinKapt)
     id(Plugins.hilt)
@@ -43,7 +43,8 @@ android {
 }
 
 dependencies {
-    implementation(fileTree(mapOf("dir" to "libs", "include" to "*.jar")))
+    api(project(Modules.data))
+    implementation(fileTree(Dependencies.fileTree))
     implementation(Dependencies.kotlin)
     implementation(Dependencies.appCompat)
     implementation(Dependencies.coreKtx)
@@ -70,6 +71,5 @@ dependencies {
     kapt(Dependencies.roomCompilerKapt)
     implementation(Dependencies.viewModel)
     implementation(Dependencies.liveData)
-    implementation(Dependencies.coroutinesCore)
     implementation(Dependencies.coroutinesAndroid)
 }

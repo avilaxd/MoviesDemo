@@ -7,11 +7,11 @@
 
         <variable
             name="viewModel"
-            type="com.rudio.moviesdemo.viewmodels.ViewModelMovies"/>
+            type="com.rudio.moviesdemo.presentation.features.movies.ViewModelMovies"/>
 
         <variable
             name="itemDecoration"
-            type="com.rudio.moviesdemo.ui.adapters.itemdecorators.ItemDecorationMovies"/>
+            type="com.rudio.moviesdemo.presentation.utils.ItemDecorationMovies"/>
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
