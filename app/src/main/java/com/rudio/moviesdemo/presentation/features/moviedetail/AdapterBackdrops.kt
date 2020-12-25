@@ -4,10 +4,10 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.rudio.moviesdemo.databinding.HolderBackdropBinding
-import com.rudio.moviesdemo.domain.models.IBackdrop
+import com.rudio.moviesdemo.presentation.models.BackdropUi
 
 class AdapterBackdrops(
-    private var backdrops: List<IBackdrop> = listOf()
+    private var backdrops: List<BackdropUi> = listOf()
 ) : RecyclerView.Adapter<HolderBackdrop>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HolderBackdrop {
@@ -18,7 +18,7 @@ class AdapterBackdrops(
         )
     }
 
-    fun setBackdrops(backdrops: List<IBackdrop>) {
+    fun setBackdrops(backdrops: List<BackdropUi>) {
         this.backdrops = backdrops
         notifyDataSetChanged()
     }

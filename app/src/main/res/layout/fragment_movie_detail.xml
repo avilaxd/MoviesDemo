@@ -110,7 +110,7 @@
                 app:layout_constraintEnd_toStartOf="@id/guidePoster"
                 app:layout_constraintDimensionRatio="0.666666"
                 android:src="@drawable/placeholder_poster"
-                app:url="@{viewModel.urlPoster()}"
+                app:url="@{viewModel.movie.poster}"
                 app:placeholder="@{@drawable/placeholder_poster}"/>
 
             <androidx.constraintlayout.widget.Guideline

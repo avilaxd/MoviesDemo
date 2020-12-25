@@ -1,12 +1,12 @@
 package com.rudio.moviesdemo.usecases
 
-import com.rudio.moviesdemo.domain.models.IMovie
-import com.rudio.moviesdemo.domain.repositories.IRepositoryMovies
+import com.rudio.moviesdemo.domain.models.Movie
+import com.rudio.moviesdemo.domain.repositories.RepositoryMovies
 import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class DeleteFavoriteUseCase @Inject constructor(private val repositoryMovies: IRepositoryMovies) {
+class DeleteFavoriteUseCase @Inject constructor(private val repositoryMovies: RepositoryMovies) {
 
-    suspend operator fun invoke(movie: IMovie) = repositoryMovies.deleteFavorite(movie)
+    suspend operator fun invoke(movie: Movie) = repositoryMovies.deleteFavorite(movie)
 }

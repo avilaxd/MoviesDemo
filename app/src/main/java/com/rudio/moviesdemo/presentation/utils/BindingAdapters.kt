@@ -8,13 +8,13 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
-import com.rudio.moviesdemo.domain.models.IBackdrop
-import com.rudio.moviesdemo.domain.models.ICastMember
-import com.rudio.moviesdemo.domain.models.IMovie
 import com.rudio.moviesdemo.presentation.features.moviedetail.AdapterBackdrops
 import com.rudio.moviesdemo.presentation.features.moviedetail.AdapterCast
 import com.rudio.moviesdemo.presentation.features.favorites.AdapterFavorites
 import com.rudio.moviesdemo.presentation.features.movies.AdapterMovies
+import com.rudio.moviesdemo.presentation.models.BackdropUi
+import com.rudio.moviesdemo.presentation.models.CastMemberUi
+import com.rudio.moviesdemo.presentation.models.MovieUi
 
 @BindingAdapter("android:text")
 fun setText(textView: TextView, value: Double) {
@@ -38,7 +38,7 @@ fun loadImage(imageView: ImageView, url: String?, placeholder: Drawable) {
 }
 
 @BindingAdapter("app:cast")
-fun setCast(recyclerView: RecyclerView, cast: List<ICastMember>?) {
+fun setCast(recyclerView: RecyclerView, cast: List<CastMemberUi>?) {
     val adapter = recyclerView.adapter
     if (cast != null && adapter is AdapterCast) {
         adapter.setCast(cast)
@@ -46,7 +46,7 @@ fun setCast(recyclerView: RecyclerView, cast: List<ICastMember>?) {
 }
 
 @BindingAdapter("app:backdrops")
-fun setBackdrops(viewPager: ViewPager2, backdrops: List<IBackdrop>?) {
+fun setBackdrops(viewPager: ViewPager2, backdrops: List<BackdropUi>?) {
     val adapter = viewPager.adapter
     if (backdrops != null && adapter is AdapterBackdrops) {
         adapter.setBackdrops(backdrops)
@@ -54,7 +54,7 @@ fun setBackdrops(viewPager: ViewPager2, backdrops: List<IBackdrop>?) {
 }
 
 @BindingAdapter("app:movies")
-fun setMovies(recyclerView: RecyclerView, movies: List<IMovie>?) {
+fun setMovies(recyclerView: RecyclerView, movies: List<MovieUi>?) {
     val adapter = recyclerView.adapter
     if (movies != null && adapter is AdapterMovies) {
         adapter.setMovies(movies)
@@ -62,7 +62,7 @@ fun setMovies(recyclerView: RecyclerView, movies: List<IMovie>?) {
 }
 
 @BindingAdapter("app:favorites")
-fun setFavorites(recyclerView: RecyclerView, favorites: List<IMovie>?) {
+fun setFavorites(recyclerView: RecyclerView, favorites: List<MovieUi>?) {
     val adapter = recyclerView.adapter
     if (favorites != null && adapter is AdapterFavorites) {
         adapter.setFavorites(favorites)

@@ -4,7 +4,6 @@ plugins {
 }
 
 dependencies {
-    implementation(fileTree(Dependencies.fileTree))
-    implementation(Dependencies.kotlin)
-    implementation(Dependencies.coroutinesCore)
+    api(Dependencies.kotlin)
+    api(Dependencies.coroutinesCore)
 }

@@ -30,7 +30,7 @@
 
         <argument
             android:name="movie"
-            app:argType="com.rudio.moviesdemo.presentation.models.Movie"/>
+            app:argType="com.rudio.moviesdemo.presentation.models.MovieUi"/>
     </fragment>
 
     <fragment

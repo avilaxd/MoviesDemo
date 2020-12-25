@@ -6,8 +6,8 @@
     <data>
 
         <variable
-            name="urlBackdrop"
-            type="String"/>
+            name="backdrop"
+            type="com.rudio.moviesdemo.presentation.models.BackdropUi"/>
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -27,7 +27,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             android:scaleType="centerCrop"
             android:src="@drawable/placeholder_backdrop"
-            app:url="@{urlBackdrop}"
+            app:url="@{backdrop.path}"
             app:placeholder="@{@drawable/placeholder_backdrop}"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

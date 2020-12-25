@@ -2,12 +2,10 @@
 
 <img src="https://user-images.githubusercontent.com/9456286/77485076-e1bc9580-6df1-11ea-8a26-7fa62eb86da9.gif" width="250" align="right">
 
-MoviesDemo is a demo project developed by me (Armando Ávila Bueno) as part of my resume in order to show recruiters the way 
-I code and the knowledge I have about Android development.
+MoviesDemo is a demo project developed by me (Armando Ávila Bueno). The app is entirely written in Kotlin following the MVVM pattern and Clean Architecture.
 
 The app shows a list of recent movies and if you click on one of those movies it'll take you to the detail of that movie, 
 displaying stuff like title, rating, synopsis, cast members and some images related to the movie. It gets its data from the [TMDB](https://www.themoviedb.org) API.
-The app is entirely written in Kotlin following the MVVM pattern.
 
 The project is meant to keep updating with new features, implementing best practices and the latests Android technologies.
 
@@ -62,6 +60,7 @@ device/emulator running Android 21+ if you want to install it.
 </p>
 
 ## Changelog
+- **Dec 24, 2020:** migrating from interfaces as domain models to data classes.
 - **Aug 30, 2020:** implementing Clean Architecture to the project.
 - **Aug 25, 2020:** implementing buildSrc plugin to manage Gradle using Kotlin.
 - **Aug 4, 2020:** migrating Retrofit's converter from GSON to Moshi.

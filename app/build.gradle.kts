@@ -1,10 +1,11 @@
 plugins {
     id(Plugins.application)
     id(Plugins.kotlinAndroid)
-    id(Plugins.kotlinAndroidExtensions)
+    id(Plugins.kotlinParcelize)
     id(Plugins.navigationSageArgs)
     id(Plugins.kotlinKapt)
     id(Plugins.hilt)
+    id(Plugins.checkDependencyUpdates) version Versions.checkDependencyUpdates
 }
 
 android {
@@ -43,9 +44,8 @@ android {
 }
 
 dependencies {
-    api(project(Modules.data))
+    implementation(project(Modules.data))
     implementation(fileTree(Dependencies.fileTree))
-    implementation(Dependencies.kotlin)
     implementation(Dependencies.appCompat)
     implementation(Dependencies.coreKtx)
     implementation(Dependencies.constraintLayout)

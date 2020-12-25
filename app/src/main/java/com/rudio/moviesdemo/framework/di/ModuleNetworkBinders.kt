@@ -1,7 +1,7 @@
 package com.rudio.moviesdemo.framework.di
 
-import com.rudio.moviesdemo.data.remote.IRemoteDataSource
-import com.rudio.moviesdemo.framework.remote.RemoteDataSource
+import com.rudio.moviesdemo.data.remote.RemoteDataSource
+import com.rudio.moviesdemo.framework.remote.RemoteDataSourceImpl
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
@@ -14,5 +14,5 @@ abstract class ModuleNetworkBinders {
 
     @Singleton
     @Binds
-    abstract fun bindLocalDataSource(remoteDataSource: RemoteDataSource): IRemoteDataSource
+    abstract fun bindLocalDataSource(remoteDataSourceImpl: RemoteDataSourceImpl): RemoteDataSource
 }

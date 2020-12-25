@@ -11,11 +11,7 @@
 
         <variable
             name="favorite"
-            type="com.rudio.moviesdemo.domain.models.IMovie"/>
-
-        <variable
-            name="urlPoster"
-            type="String"/>
+            type="com.rudio.moviesdemo.presentation.models.MovieUi"/>
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -37,7 +33,7 @@
             app:layout_constraintDimensionRatio="0.666666"
             app:layout_constraintVertical_bias="1"
             android:src="@drawable/placeholder_poster"
-            app:url="@{urlPoster}"
+            app:url="@{favorite.poster}"
             app:placeholder="@{@drawable/placeholder_poster}"/>
 
         <View

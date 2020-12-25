@@ -1,7 +1,7 @@
 package com.rudio.moviesdemo.framework.di
 
-import com.rudio.moviesdemo.data.local.ILocalDataSource
-import com.rudio.moviesdemo.framework.local.LocalDataSource
+import com.rudio.moviesdemo.data.local.LocalDataSource
+import com.rudio.moviesdemo.framework.local.LocalDataSourceImpl
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
@@ -14,5 +14,5 @@ abstract class ModuleDatabaseBinders {
 
     @Singleton
     @Binds
-    abstract fun bindLocalDataSource(localDataSource: LocalDataSource): ILocalDataSource
+    abstract fun bindLocalDataSource(localDataSourceImpl: LocalDataSourceImpl): LocalDataSource
 }

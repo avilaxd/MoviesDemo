@@ -4,10 +4,10 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.rudio.moviesdemo.databinding.HolderCastmemberBinding
-import com.rudio.moviesdemo.domain.models.ICastMember
+import com.rudio.moviesdemo.presentation.models.CastMemberUi
 
 class AdapterCast(
-    private var cast: List<ICastMember> = listOf()
+    private var cast: List<CastMemberUi> = listOf()
 ) : RecyclerView.Adapter<HolderCastMember>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HolderCastMember {
@@ -18,7 +18,7 @@ class AdapterCast(
         )
     }
 
-    fun setCast(cast: List<ICastMember>) {
+    fun setCast(cast: List<CastMemberUi>) {
         this.cast = cast
         notifyDataSetChanged()
     }

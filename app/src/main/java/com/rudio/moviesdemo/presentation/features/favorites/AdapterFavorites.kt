@@ -4,11 +4,11 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.rudio.moviesdemo.databinding.HolderFavoriteBinding
-import com.rudio.moviesdemo.domain.models.IMovie
+import com.rudio.moviesdemo.presentation.models.MovieUi
 
 class AdapterFavorites(
     private val viewModel: ViewModelFavorites,
-    private var favorites: List<IMovie> = listOf()
+    private var favorites: List<MovieUi> = listOf()
 ) : RecyclerView.Adapter<HolderFavorite>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HolderFavorite {
@@ -19,7 +19,7 @@ class AdapterFavorites(
         )
     }
 
-    fun setFavorites(favorites: List<IMovie>) {
+    fun setFavorites(favorites: List<MovieUi>) {
         this.favorites = favorites
         notifyDataSetChanged()
     }
